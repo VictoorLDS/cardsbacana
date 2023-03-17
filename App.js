@@ -1,12 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Card from './src/components/Card';
+import SegundoCard from './src/components/SegundoCard';
+import TerceiroCard from './src/components/TerceiroCard';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Card />
-    </View>
+      <SegundoCard/>
+      <TerceiroCard/>
+      </View>
   );
 }
 

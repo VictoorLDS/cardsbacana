@@ -16,8 +16,8 @@ export default class Card extends Component{
                     borderWidth: 3,
                     borderColor: 'black'
                 }}
-                source = {require('../components/imgs/veigh.jpg')}/>
-                <Text>Veigh</Text>
+                source = {require('../components/imgs/alee.jpg')}/>
+                <Text>Alee</Text>
             </View>
         )
     }
