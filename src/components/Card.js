@@ -3,6 +3,7 @@ import { StyleSheet, Image, View, Text } from "react-native";
 
 export default class Card extends Component{
     render(){
+        
         return(
             <View style={{
                 borderWidth: 3,
@@ -10,6 +11,7 @@ export default class Card extends Component{
                 padding: 5,
                 backgroundColor: 'white',
                 marginBottom: 4,
+                marginTop: 40,
                 
                 
             }}>
@@ -20,11 +22,11 @@ export default class Card extends Component{
                     borderWidth: 3,
                     borderColor: 'black'
                 }}
-                source = {require('../components/imgs/theforeverstory.jpeg')}/>
+                source = {this.props.img}/>
                 <Text style={{
                     padding: 5, 
                     textAlign: 'center',
-                }}>The Forever Story - JID</Text>
+                }}>{this.props.Titulo}</Text>
             </View>
         )
     }
