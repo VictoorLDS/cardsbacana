@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import icon from 'react-native-vector-icons/FontAwesome';
+
 
 const handlePress = () => {}
 
