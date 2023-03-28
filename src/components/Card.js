@@ -1,33 +1,58 @@
 import { Component } from "react";
-import { StyleSheet, Image, View, Text } from "react-native";
+import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
+
+const handlePress = () => {}
+
 
 export default class Card extends Component{
     render(){
         
+        
         return(
-            <View style={{
-                borderWidth: 3,
-                borderColor: 'black',
-                padding: 5,
-                backgroundColor: 'white',
-                marginBottom: 4,
-                marginTop: 40,
-                
-                
-            }}>
+            <View style={styles.Card}>
                 <Image
-                style={{
-                    height: 200,
-                    width: 200,
-                    borderWidth: 3,
-                    borderColor: 'black'
-                }}
+                style={styles.img}
                 source = {this.props.img}/>
-                <Text style={{
-                    padding: 5, 
-                    textAlign: 'center',
-                }}>{this.props.Titulo}</Text>
+                <View style={{
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
+                    <Text style={{
+                        padding: 5, 
+                    }}>{this.props.Titulo}</Text>
+
+                    <TouchableOpacity style={styles.touch} 
+                        onPress={handlePress}>
+                        <Text style={styles.touch}>Favoritar</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
 }
+const styles = StyleSheet.create({
+    touch:{
+        color: 'grey',
+        width: 60,
+        alignItems: "center",                   
+        
+    },
+    img:{
+        height: 200,
+        width: 200,
+        borderWidth: 3,
+        borderColor: 'black',
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 5
+    },
+    Card:{
+            borderWidth: 3,
+            borderColor: 'black',
+            padding: 5,
+            backgroundColor: 'white',
+            marginBottom: 4,
+            marginTop: 40,
+            justifyContent: "center",
+    }
+})
