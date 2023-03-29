@@ -23,10 +23,9 @@ export default class Card extends Component{
                         padding: 5, 
                     }}>{this.props.Titulo}</Text>
 
-                    <TouchableOpacity style={styles.touch} 
+                    <TouchableOpacity
                         onPress={handlePress}>
-                        <Icon name="star" size={20} color="yellow" />
-                        <Text style={styles.touch}>Favoritar</Text>
+                        <Icon name="trash" size={20} color="red" />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -34,12 +33,6 @@ export default class Card extends Component{
     }
 }
 const styles = StyleSheet.create({
-    touch:{
-        color: 'grey',
-        width: 60,
-        alignItems: "center",                   
-        
-    },
     img:{
         height: 200,
         width: 200,
