@@ -27,8 +27,8 @@ function Card(props) {
         >
           {props.album.Titulo}
         </Text>
-        <View style={{flexDirection:"row"}}>
-          <Text style={{marginHorizontal: 10}}>{props.curtida}</Text>
+        <View style={{ flexDirection: "row" }}>
+          <Text style={{ marginHorizontal: 10 }}>{props.curtida}</Text>
           <TouchableOpacity onPress={props.adicionar}>
             <AntDesign name="heart" size={24} color="black" />
           </TouchableOpacity>
@@ -37,39 +37,51 @@ function Card(props) {
     </View>
   );
 }
+
 export default function App() {
   const albuns = [
     {
+      id: 1,
       Titulo: "The Forever Story - JID",
       img: require("./assets/imgs/theforeverstory.jpeg"),
     },
     {
+      id: 2,
       Titulo: "Blonde - Frank Ocean",
       img: require("./assets/imgs/blonde.jpeg"),
     },
     {
+      id: 3,
       Titulo: "Flower Boy - Tyler, The Creator",
       img: require("./assets/imgs/flowerboy.jpeg"),
     },
     {
+      id: 4,
       Titulo: "Astroworld - Travis Scott",
       img: require("./assets/imgs/astroworld.jpeg"),
     },
   ];
-  const [curtida, setCurtida] = useState(0);
+
+  const [curtidas, setCurtidas] = useState(albuns.map(() => 0));
+
   function adicionar(id) {
-    setCurtida(curtida + 1);
+    const novasCurtidas = [...curtidas];
+    const index = albuns.findIndex((album) => album.id === id);
+    novasCurtidas[index] += 1;
+    setCurtidas(novasCurtidas);
   }
+
   return (
     <ScrollView>
       <View style={styles.container}>
         <Text style={styles.titulo}>Álbuns Escutados</Text>
         <View>
-          {albuns.map((album) => (
+          {albuns.map((album, index) => (
             <Card
+              key={album.id}
               album={album}
-              curtida={curtida}
-              adicionar={() => adicionar(1)}
+              curtida={curtidas[index]}
+              adicionar={() => adicionar(album.id)}
             />
           ))}
         </View>
